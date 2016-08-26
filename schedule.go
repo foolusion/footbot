@@ -16,12 +16,14 @@ type Week struct {
 }
 
 type Game struct {
-	Home     string `xml:"h,attr"`
-	Away     string `xml:"v,attr"`
-	HomeName string `xml:"hnn,attr"`
-	AwayName string `xml:"vnn,attr"`
-	Day      string `xml:"d,attr"`
-	Time     string `xml:"t,attr"`
+	Home      string `xml:"h,attr"`
+	HomeName  string `xml:"hnn,attr"`
+	HomeScore int    `xml:"hs,attr"`
+	Away      string `xml:"v,attr"`
+	AwayName  string `xml:"vnn,attr"`
+	AwayScore int    `xml:"vs,attr"`
+	Day       string `xml:"d,attr"`
+	Time      string `xml:"t,attr"`
 }
 
 func getSchedule(ctx context.Context, c *http.Client, year, week, seasonType string) (*Week, error) {
